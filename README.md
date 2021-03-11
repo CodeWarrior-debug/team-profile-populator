@@ -15,9 +15,13 @@
   ---
   This quickly generates an html page showing all the team members on a team. The 10th UNCC bootcamp howmework, it showed the power of node and npm in using classes and modularizing code and using tests. Wish we had more time but thankful to my tutor who got me rolling! This tool is for users willing to watch a video and to have vscode on their computer.
 
+  ## Preview
+  ---
+      ![Team Page](https://raw.githubusercontent.com/CodeWarrior-debug/hw10-team-profile-populator/main/lib/img/Clip%20of%20Generated%20Team%20Webpage.png)
+
   ## Installation
   ---
-    ![Tutorial Video](https://img.shields.io/badge/License-MIT-yellow.svg)(https://opensource.org/licenses/MIT)
+    ![Tutorial Video](https://github.com/CodeWarrior-debug/hw10-team-profile-populator/blob/main/lib/img/Video%20Of%20Team%20Page%20Maker.mp4)
   Please see video - forking, cloning, changing directory, installing npm packages, then running with "npm run test" and "node app.js".
 
   ## Tests
