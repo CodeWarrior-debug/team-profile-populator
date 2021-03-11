@@ -62,7 +62,9 @@ function menuDirect(){              //lets user choose to proceed and pick a typ
 
             if (answers.menuChoice === 'Finalize Team') {        //render all HTML then write to new file
                 const htmlText = render(empArray);
-                fs.writeFile(outputPath,htmlText);
+                fs.writeFile(outputPath,htmlText,(err) => {
+                    if (err) throw err;}
+                    );
                 return;
             };
 
