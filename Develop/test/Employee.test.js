@@ -27,14 +27,17 @@ test("Can get name via getName()", () => {
     expect(instEE.getName()).toEqual('james');
 });
 
-// test("Can get id via getId()", () => {
-    
-// });
+test("Can get id via getId()", () => {
+    const instEE=new Employee('james','01','jpjordan1987@gmail.com');
+    expect(instEE.getId()).toEqual('01');
+});
 
-// test("Can get email via getEmail()", () => {
+test("Can get email via getEmail()", () => {
+    const instEE=new Employee('james','01','jpjordan1987@gmail.com');
+    expect(instEE.getEmail()).toEqual('jpjordan1987@gmail.com');
+});
 
-// });
-
-// test("getRole() should return \"Employee\"", () => {
-
-// });
+test("getRole() should return \"Employee\"", () => {
+    const instEE=new Employee('james','01','jpjordan1987@gmail.com');
+    expect(instEE.getRole()).toEqual("Employee");
+});
