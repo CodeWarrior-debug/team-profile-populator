@@ -60,16 +60,16 @@ function menuDirect(){              //lets user choose to proceed and pick a typ
             })
         .then((answers) => {
 
-            if (answers === 'Finalize Team') {        //render all HTML then write to new file
+            if (answers.menuChoice === 'Finalize Team') {        //render all HTML then write to new file
                 const htmlText = render(empArray);
                 fs.writeFileSync(outputPath,htmlText);
                 return;
             };
 
-            if (answers === 'Add Engineer') {
+            if (answers.menuChoice === 'Add Engineer') {
                 addEngineer()};
 
-            if (answers === 'Add Intern') {
+            if (answers.menuChoice === 'Add Intern') {
                 addIntern()};
         })}
 
