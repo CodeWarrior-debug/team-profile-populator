@@ -12,9 +12,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const empArray=[];
 
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
 
 function init(){
 
@@ -42,11 +41,11 @@ function init(){
                 name:'mgr_office_no'
             }])
         .then((ans) => {
-            new Manager(ans.mgr_name, ans.mgr_id, ans.mgr_email, ans.mgr_office_no);
+            const mgrEE = new Manager(ans.mgr_name, ans.mgr_id, ans.mgr_email, ans.mgr_office_no);
+            empArray.push(mgrEE);
             menuDirect();
         });
 
-        
 }
 
 init();
@@ -61,11 +60,13 @@ function menuDirect(){              //lets user choose to proceed and pick a typ
             })
         .then((answers) => {
 
-            if (answers === 'Finalize Team') {return};
+            if (answers === 'Finalize Team') {        //render all HTML then write to new file
+                render(empArray);
+                return;
+            };
 
             if (answers === 'Add Engineer') {
-                addEngineer();
-                return;};
+                addEngineer()};
 
             if (answers === 'Add Intern') {
                 addIntern()}
@@ -76,32 +77,31 @@ function menuDirect(){              //lets user choose to proceed and pick a typ
             inquirer
                 .prompt([
         
-                    {               // Initial set of questions regarding manager
+                    {               // questions for engineer
                         type:'input',
                         message: 'On this team, what is the name of this engineer?',
                         name:'name'
                     },
                     {
                         type:'input',
-                        message: 'What is the employee ID of the manager?',
+                        message: 'What is the employee ID of the engineer?',
                         name:'id'
                     },
                     {
                         type:'input',
-                        message: 'On this team, what is the email address of the manager?',
+                        message: 'On this team, what is the email address of the engineer?',
                         name:'email'
                     },
                     {
                         type:'input',
-                        message: 'On this team, what is the office number of the manager?',
-                        name:'office_no'
+                        message: 'On this team, what is the github username of the engineer?',
+                        name:'github'
                     }])
                 .then((ans) => {
-                    new Manager(ans.name, ans.id, ans.email, ans.office_no);
+                 const tmEngnr = new Engineer(ans.name, ans.id, ans.email, ans.github);
+                    empArray.push(tmEngnr);
                     menuDirect();
                 });
-        
-                
         }
 
         function addIntern(){
@@ -109,33 +109,34 @@ function menuDirect(){              //lets user choose to proceed and pick a typ
             inquirer
                 .prompt([
         
-                    {               // Initial set of questions regarding manager
+                    {               // questions for intern
                         type:'input',
-                        message: 'On this team, what is the name of the manager?',
+                        message: 'What is the name of the intern?',
                         name:'name'
                     },
                     {
                         type:'input',
-                        message: 'What is the employee ID of the manager?',
+                        message: 'What is the employee ID of the intern?',
                         name:'id'
                     },
                     {
                         type:'input',
-                        message: 'On this team, what is the email address of the manager?',
+                        message: 'What is the email address of the intern?',
                         name:'email'
                     },
                     {
                         type:'input',
-                        message: 'On this team, what is the office number of the manager?',
-                        name:'office_no'
+                        message: 'What is the school of the intern?',
+                        name:'school'
                     }])
                 .then((ans) => {
-                    new Manager(ans.name, ans.id, ans.email, ans.office_no);
+                    const tmIntern =new Intern(ans.name, ans.id, ans.email, ans.school);
+                    empArray.push(tmIntern);
                     menuDirect();
-                });
-        
-                
+                });      
         }
+
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
