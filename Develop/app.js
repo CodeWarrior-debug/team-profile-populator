@@ -61,7 +61,8 @@ function menuDirect(){              //lets user choose to proceed and pick a typ
         .then((answers) => {
 
             if (answers === 'Finalize Team') {        //render all HTML then write to new file
-                render(empArray);
+                const htmlText = render(empArray);
+                fs.writeFileSync(outputPath,htmlText);
                 return;
             };
 
@@ -69,7 +70,7 @@ function menuDirect(){              //lets user choose to proceed and pick a typ
                 addEngineer()};
 
             if (answers === 'Add Intern') {
-                addIntern()}
+                addIntern()};
         })}
 
         function addEngineer(){
