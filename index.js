@@ -2,8 +2,9 @@
 
 const inquirer = require("inquirer");
 const fs = require('fs');
-const generateHTMLStart = require('./src/generateHTML');
 const Employee = require("./lib/classes");
+const generateHTMLStart = require("./src/generateHTML.js");
+
 
         //**************************ADD FILES TO REQUIRE/CONNECT*/
 
